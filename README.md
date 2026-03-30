@@ -189,6 +189,6 @@ MIT — free to use, fork, and build on. If you build something interesting, ope
 
 This framework was built by [Bruno Mirabella](https://linkedin.com/in/brunomirabella) — AI trainer (600+ professionals), screenwriter, and director.
 
-Oracle has been running in production on his own life and work since early 2026. Lucius (Eurek-AI) and Olimpia (Agoraa Consortium) are two deployed instances on different professional profiles.
+Oracle has been running in production on his own life and work since early 2026. Two additional instances — Lucius (freelance developer / CTO profile) and Olimpia (manager profile) — are deployed on different professional contexts.
 
 If you want Oracle configured for your organization: [contact](mailto:brunocmirabella@gmail.com)
