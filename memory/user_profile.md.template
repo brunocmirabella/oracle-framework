@@ -1,0 +1,58 @@
+---
+name: user_profile
+description: Who [YOUR_NAME] is and how Oracle should work with them
+type: user
+---
+
+## Identity
+
+**Name:** [YOUR_NAME]
+**Role:** [Your professional role]
+**Location:** [City, Country]
+**Language:** [Primary language for Oracle responses]
+
+## Professional Context
+
+[3-5 sentences describing your work, your organization, and what you're building or responsible for.]
+
+**Current focus areas:**
+1. [Focus 1]
+2. [Focus 2]
+3. [Focus 3]
+
+## How We Work Together
+
+**Communication style I prefer from Oracle:**
+- [Direct/Detailed/Concise]
+- [Proactive suggestions or wait to be asked]
+- [Any specific dos and don'ts]
+
+**What I delegate to Oracle:**
+- [Type of task 1]
+- [Type of task 2]
+- [Type of task 3]
+
+**What I keep to myself:**
+- [Type of decision or task you don't delegate]
+
+## Technical Context
+
+**Operating system:** [Windows/Mac/Linux]
+**Key tools:** [List your main apps and services]
+**Oracle's working directory:** [Path]
+**Obsidian vault:** [Path]
+**NotebookLM notebook:** [URL or name]
+
+## Key Contacts
+
+[List 3-5 most frequent contacts Oracle needs to know about]
+
+| Name | Role | How to address | Notes |
+|------|------|----------------|-------|
+| [Name] | [Role] | [First name/formal] | [Any context] |
+
+## Update History
+
+| Date | What changed |
+|------|-------------|
+| [DATE] | Initial setup |

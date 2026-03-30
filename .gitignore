@@ -1,0 +1,25 @@
+# Personal config files (not for distribution)
+CLAUDE.md
+memory/MEMORY.md
+memory/user_profile.md
+soul-document/SOUL_DOCUMENT.md
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# Node
+node_modules/
+
+# Secrets
+.env
+*.env

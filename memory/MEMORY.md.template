@@ -1,0 +1,22 @@
+# Memory Index — [YOUR_NAME]
+*Oracle's local memory system. Each file is a card loaded at session start.*
+*Keep this index updated as you add or modify memory files.*
+
+---
+
+## Active Memory Cards
+
+- [user_profile.md](user_profile.md) — Who [YOUR_NAME] is, how we work together, communication preferences
+- [reference_knowledge.md](reference_knowledge.md) — Where to find information (vaults, notebooks, repos)
+
+## Add cards as needed:
+
+- `project_[name].md` — State and context of active projects
+- `feedback_[topic].md` — Guidance Oracle has received and should apply consistently
+- `contacts_[name].md` — Key people and relationship context
+
+---
+
+*Memory cards are loaded automatically at session start.*
+*They give Oracle immediate context without needing to search for it.*
+*Keep cards under 200 lines — focused and current.*
