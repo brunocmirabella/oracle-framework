@@ -1,0 +1,48 @@
+---
+name: reference_knowledge
+description: Map of key paths, external resources, and services used by this Oracle instance
+type: reference
+---
+
+# Reference Knowledge
+
+## Workspace paths
+
+| Resource | Path |
+|----------|------|
+| **Workspace root** | `[YOUR_WORKSPACE_PATH]` |
+| **Obsidian vault** | `[YOUR_OBSIDIAN_VAULT_PATH]` |
+| **Skills directory** | `~/.claude/skills/` |
+| **Memory directory** | `~/.claude/projects/[project]/memory/` |
+
+## Key scripts
+
+| Script | Path | Purpose |
+|--------|------|---------|
+| `obsidian_api.py` | `[path]` | Write to Obsidian via REST API |
+| `oracle-commands` | `[path]` | Start/stop services (n8n, Ollama, ComfyUI) |
+
+## Services
+
+| Service | Port | Start command |
+|---------|------|--------------|
+| **n8n** (automations) | 5678 | `n8n start` |
+| **Ollama** (local LLM) | 11434 | `ollama serve` |
+| **ComfyUI** (image gen) | 8188 | `python main.py` |
+| **Obsidian REST API** | 27123 | (start Obsidian) |
+
+## NotebookLM notebooks
+
+| Notebook | URL | Contents |
+|----------|-----|---------|
+| **Main** | `[your-notebooklm-url]` | Core knowledge base |
+| **Creative** | `[your-notebooklm-url]` | Creative projects, voice, briefs |
+| **Domain-specific** | `[your-notebooklm-url]` | [your domain] |
+
+## External references
+
+| Resource | URL / Note |
+|----------|-----------|
+| **Your site** | `[your-website]` |
+| **LinkedIn** | `[your-linkedin]` |
+| **Primary contact** | `[your-email]` |

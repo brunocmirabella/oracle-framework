@@ -101,21 +101,24 @@ oracle-framework/
 ├── memory/
 │   ├── MEMORY.md.template          # Memory index
 │   ├── user_profile.md.template    # Your profile for Oracle
-│   └── reference_knowledge.md.template
+│   └── reference_knowledge.md.template  # Paths, services, external resources
 ├── skills/
 │   ├── SKILL.md.template           # Build your own skill
 │   └── examples/
-│       ├── email-agent/            # Draft and send emails
+│       ├── email-agent/            # Draft emails in your voice
 │       ├── calendar-agent/         # Manage calendar + reminders
 │       ├── news-agent/             # Daily briefings
-│       └── research-agent/         # Web research on demand
+│       ├── research-agent/         # Web research on demand
+│       ├── meeting-reporter/       # Audio/notes → structured minutes + action items
+│       ├── skills-builder/         # Meta-agent: Oracle builds its own skills
+│       └── system-audit/           # Self-diagnosis: what works, what's missing
 ├── cron/
 │   └── REMOTE_TRIGGERS.md          # Autonomous scheduled agents
 └── docs/
     ├── SETUP.md                    # Step-by-step installation
-    ├── ARCHITECTURE.md             # How Oracle works
+    ├── ARCHITECTURE.md             # How Oracle works (memory, agents, self-improvement)
     ├── SOUL_INTERVIEW.md           # How to write your Soul Document
-    └── MCP_GUIDE.md                # Which MCPs to install and why
+    └── MCP_GUIDE.md                # MCPs, local AI stack, Telegram, desktop control
 ```
 
 ---
@@ -175,9 +178,23 @@ PRs welcome. Open an issue first for major changes.
 
 If you build your own Oracle instance, share it — open a PR to add it to the `examples/` directory.
 
+## Local AI stack
+
+Oracle integrates with local AI models — no API cost, no data sent to cloud:
+
+| Tool | Port | Purpose |
+|------|------|---------|
+| **Ollama** | 11434 | Run Llama, Mistral, Gemma locally |
+| **ComfyUI** | 8188 | Stable Diffusion image generation |
+| **Whisper** | — | Local audio transcription (meetings, voice notes) |
+
+See [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) for setup details.
+
+---
+
 ## Community
 
-[Discord](#) · [Twitter/X](#) · [LinkedIn](#)
+[Twitter/X](https://x.com/brunocmirabella) · [LinkedIn](https://linkedin.com/in/brunomirabella)
 
 ## License
 
