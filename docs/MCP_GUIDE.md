@@ -193,6 +193,136 @@ Oracle Core (Claude Code CLI)
 
 ---
 
+## Power tier — Full computer control
+
+These integrations unlock Oracle's most powerful capabilities: native control of your PC and voice interaction.
+
+### MCPControl (computer takeover)
+
+Gives Oracle eyes and hands on your desktop. It can move the mouse, click, type, take screenshots, read what's on screen — and act on any app that doesn't have an API.
+
+```bash
+# Install via npm
+npm install -g mcp-control
+claude mcp add mcp-control -- npx mcp-control
+```
+
+**What Oracle can do:**
+- Take screenshots and "see" what's on screen
+- Click buttons and fill forms in any desktop app
+- Type into any window (terminal, email client, design tool)
+- Automate workflows across apps that don't have APIs
+- Control Premiere Pro, Photoshop, any local software
+
+**Use cases:**
+- Automate repetitive tasks in legacy tools
+- Watch a screen and react to what appears
+- Control creative tools (video editors, DAWs) via natural language
+
+### Voice transcription (local Whisper)
+
+Oracle can transcribe audio files locally — no cloud, no API cost.
+
+```bash
+pip install openai-whisper
+```
+
+**Usage:**
+```bash
+python -c "import whisper; m=whisper.load_model('base'); r=m.transcribe('[file.mp3]', language='en'); print(r['text'])"
+```
+
+**Models:** `tiny` (fast), `base` (balanced), `medium`/`large` (accurate for noisy audio)
+
+**Use cases:**
+- Transcribe meeting recordings → meeting-reporter skill
+- Process voice messages from Telegram
+- Convert spoken notes to text
+
+### Telegram plugin (mobile interface)
+
+The Telegram plugin turns your phone into Oracle's control panel. Send a message from anywhere → Oracle acts on your desktop.
+
+**Install:** Available via Claude Code plugin marketplace
+```
+/telegram:configure <your-bot-token>
+```
+
+Get a bot token from [@BotFather](https://t.me/BotFather) on Telegram.
+
+**What this enables:**
+- Send task requests from your phone while away from the desk
+- Receive reports and summaries as Telegram messages
+- Voice messages → Whisper transcription → Oracle action
+- Full Oracle pipeline triggered from mobile
+
+### Google Workspace CLI (clasp + gcloud)
+
+For deep Google ecosystem integration — beyond what the OAuth connectors provide.
+
+```bash
+# Google Cloud SDK
+# Download from: cloud.google.com/sdk
+gcloud auth login
+gcloud auth application-default login
+
+# clasp (Google Apps Script CLI)
+npm install -g @google/clasp
+clasp login
+```
+
+**What this enables:**
+- Deploy and manage Google Apps Scripts
+- Automate Google Sheets, Docs, Forms via code
+- Access Google Cloud APIs directly
+- Manage Google Workspace admin operations
+
+---
+
+## Updated full connector map
+
+```
+Oracle Core (Claude Code CLI)
+│
+├── MCP Local (installed via claude mcp add)
+│   ├── Playwright          — browser automation (navigate, click, extract)
+│   ├── Brave Search        — web research (2000 req/month free)
+│   ├── Sequential Thinking — complex multi-step reasoning
+│   ├── GitHub              — code repos, issues, PRs
+│   ├── Notion              — knowledge base
+│   ├── Filesystem          — local files with path control
+│   ├── MCPControl          — full desktop control (mouse, keyboard, screen)
+│   └── Telegram plugin     — mobile interface (send/receive)
+│
+├── Cloud Connectors (claude.ai/settings/connectors)
+│   ├── Gmail               — email read/draft
+│   ├── Google Calendar     — events, scheduling
+│   ├── Canva               — graphics generation
+│   ├── Gamma               — AI slide decks
+│   ├── Notion              — cloud knowledge base
+│   ├── Hugging Face        — ML model search
+│   ├── Indeed              — job market research
+│   └── Replicate           — image/video AI generation
+│
+├── Local tools (CLI)
+│   ├── Whisper             — local audio transcription
+│   ├── gcloud / clasp      — Google Workspace deep integration
+│   └── n8n                 — local automation hub (port 5678)
+│
+├── Memory Layer
+│   ├── Memory cards        — immediate context (CLAUDE.md files)
+│   ├── Obsidian vault      — session RAM (live notes)
+│   └── NotebookLM          — permanent HD (structured knowledge)
+│
+└── n8n Workflows (localhost:5678)
+    ├── Social publishing   — IG, LinkedIn, Facebook, X
+    ├── CRM sync            — HubSpot, Notion DB
+    ├── Messaging           — WhatsApp, Slack, Telegram
+    └── Webhook routing     — any HTTP endpoint
+```
+
+---
+
 ## Verifying your setup
 
 In a Claude Code session, run:
