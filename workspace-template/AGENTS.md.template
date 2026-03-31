@@ -1,0 +1,45 @@
+# Active Agents
+
+> This file is the registry of active skills in your Oracle instance.
+> Oracle reads this during system audit to understand its own capabilities.
+> Update whenever you add, remove, or modify a skill.
+
+---
+
+## Active skills
+
+| Skill name | Trigger phrase | Location | Status |
+|-----------|---------------|----------|--------|
+| [SKILL_NAME] | "[TRIGGER_PHRASE]" | `~/.claude/skills/[name]/SKILL.md` | active |
+
+---
+
+## Skill descriptions
+
+### [SKILL_NAME]
+
+- **What it does:** [1-2 sentence description]
+- **Trigger:** `[exact trigger phrase]`
+- **Reads:** [files it loads before starting]
+- **Produces:** [what it outputs — file, email draft, report, etc.]
+- **Last updated:** [date]
+
+---
+
+## Skills to build
+
+Skills identified as missing or needed:
+
+| Skill | Use case | Priority |
+|-------|---------|----------|
+| [SKILL_NAME] | [what problem it solves] | high / medium / low |
+
+---
+
+## Retired skills
+
+Skills removed because they're obsolete or superseded:
+
+| Skill | Reason removed | Date |
+|-------|---------------|------|
+| [SKILL_NAME] | [reason] | [date] |

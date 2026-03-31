@@ -1,0 +1,81 @@
+# Tools & Integrations
+
+> Oracle reads this to know what tools are available in your instance.
+> This prevents Oracle from trying to use tools you haven't configured,
+> and ensures it uses the right method for each task.
+
+---
+
+## MCP Servers (local)
+
+Tools installed via `claude mcp add`:
+
+| Server | Status | Notes |
+|--------|--------|-------|
+| playwright | ✅ active | Browser automation |
+| brave-search | ✅ active | Requires BRAVE_API_KEY |
+| sequential-thinking | ✅ active | Complex reasoning |
+| github | ⬜ not installed | |
+| notion | ⬜ not installed | |
+| filesystem | ⬜ not installed | |
+| mcp-control | ⬜ not installed | Desktop control |
+
+---
+
+## Cloud Connectors (claude.ai/settings/connectors)
+
+| Connector | Status | Notes |
+|-----------|--------|-------|
+| Gmail | ✅ connected | |
+| Google Calendar | ✅ connected | Required for cron |
+| Canva | ⬜ not connected | |
+| Gamma | ⬜ not connected | |
+| Notion | ⬜ not connected | |
+
+---
+
+## Plugins (claude.ai plugins)
+
+| Plugin | Status | Notes |
+|--------|--------|-------|
+| Telegram | ✅ active | chat_id: [YOUR_CHAT_ID] |
+
+---
+
+## Local services
+
+| Service | Port | Status | Start command |
+|---------|------|--------|---------------|
+| n8n | 5678 | [running/stopped] | `n8n start` |
+| Ollama | 11434 | [running/stopped] | `ollama serve` |
+| ComfyUI | 8188 | [running/stopped] | `python main.py` |
+| Obsidian REST API | 27123 | [running/stopped] | (start Obsidian) |
+
+---
+
+## Local scripts
+
+| Script | Path | Purpose |
+|--------|------|---------|
+| obsidian_api.py | `[PATH]` | Write notes to Obsidian vault |
+| ask_question.py | `~/.claude/skills/notebooklm/scripts/ask_question.py` | Query NotebookLM |
+
+---
+
+## Capability map
+
+What Oracle CAN do in this instance:
+
+- [x] Answer questions with live NotebookLM context
+- [x] Read and update Obsidian session notes
+- [x] Draft and read Gmail emails
+- [x] Create Google Calendar events
+- [x] Autonomous web research (Brave Search)
+- [x] Browse and interact with websites (Playwright)
+- [x] Receive and send Telegram messages
+- [ ] Post to social media (requires n8n)
+- [ ] Control desktop (requires MCPControl)
+- [ ] Transcribe audio (requires Whisper)
+- [ ] Generate images (requires ComfyUI or Replicate)
+
+Adjust this list to match your actual setup.

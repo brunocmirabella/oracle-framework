@@ -1,0 +1,94 @@
+# Heartbeat Configuration
+
+> Oracle reads this file during scheduled automations.
+> Fill in every section. This is what makes autonomous agents relevant to YOUR life.
+
+---
+
+## Topics to monitor
+
+Topics Oracle tracks in news digests, research, and weekly scouts:
+
+- [YOUR_PRIMARY_SECTOR]: trends, news, opportunities, regulations
+- [YOUR_TECHNOLOGY]: new tools, papers, releases
+- [YOUR_COMPETITORS or PEERS]: product updates, funding, moves
+
+---
+
+## Contacts to track
+
+People Oracle should pay attention to in emails and news:
+
+| Name | Relationship | What to watch |
+|------|-------------|--------------|
+| [NAME] | [client/partner/investor] | [email threads, news mentions] |
+| [NAME] | [collaborator] | [project updates] |
+
+---
+
+## Weekly KPIs
+
+Metrics Oracle checks weekly and reports on:
+
+| Metric | Current | Target | Where to find it |
+|--------|---------|--------|-----------------|
+| [METRIC_1] | [value] | [target] | [file/url/system] |
+| [METRIC_2] | [value] | [target] | [file/url/system] |
+
+---
+
+## Recurring tasks
+
+Tasks Oracle checks weekly:
+
+**Every Monday:**
+- [ ] [TASK_1]
+- [ ] [TASK_2]
+
+**Every Friday:**
+- [ ] [TASK_1]
+- [ ] Review week against North Star goals
+
+**First of the month:**
+- [ ] [MONTHLY_TASK_1]
+- [ ] Update KPIs
+
+---
+
+## Funding sectors
+
+Sectors and regions for funding scout (grants, tenders, VC rounds):
+
+- **Primary sector:** [YOUR_SECTOR]
+- **Region:** [YOUR_COUNTRY/REGION]
+- **Stage:** [pre-seed / seed / series-A / etc.]
+- **Organization type:** [startup / nonprofit / SME / etc.]
+- **Keywords to search:** [keyword1, keyword2, keyword3]
+
+---
+
+## North Star goals
+
+Annual goals Oracle evaluates weekly. Be specific.
+
+1. [GOAL_1 — measurable]
+2. [GOAL_2 — measurable]
+3. [GOAL_3 — measurable]
+
+---
+
+## Notification preferences
+
+Where Oracle delivers heartbeat outputs:
+
+- **Morning briefing:** Telegram (chat_id: [YOUR_CHAT_ID])
+- **Weekly planning:** Telegram
+- **Funding scout:** Gmail draft + Telegram summary
+- **News digest:** Telegram
+
+---
+
+## Open tasks (Oracle updates this section)
+
+<!-- Oracle appends tasks here during sessions -->
+<!-- Format: - [ ] [task] — added [date] -->

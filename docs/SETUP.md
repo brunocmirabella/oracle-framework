@@ -63,7 +63,25 @@ If you want help: see [docs/SOUL_INTERVIEW.md](SOUL_INTERVIEW.md) for a guided p
 
 ---
 
-## Step 5 — Set up memory cards
+## Step 5 — Set up your workspace
+
+Copy the workspace templates to your working directory:
+
+```bash
+mkdir -p ~/oracle-workspace
+cp -r workspace-template/* ~/oracle-workspace/
+```
+
+Fill in the files in this order:
+1. `USER.md` — your professional profile
+2. `VOICE.md` — your communication style (include real email examples)
+3. `CONTACTS.md` — key people Oracle should know
+4. `HEARTBEAT.md` — topics, KPIs, and recurring tasks for autonomous agents
+5. `AGENTS.md` and `TOOLS.md` — update after configuring MCPs and skills
+
+---
+
+## Step 5b — Set up memory cards
 
 ```bash
 cp memory/user_profile.md.template ~/.claude/projects/oracle/memory/user_profile.md
@@ -118,6 +136,37 @@ Go to [claude.ai/settings/connectors](https://claude.ai/settings/connectors) and
 - **Google Calendar** — for scheduling and cron agents
 
 These are required for Remote Triggers (cron agents) to work.
+
+---
+
+## Step 8b — Set up hooks (automatic context injection)
+
+Hooks are what make Oracle proactively know your context. Without them, Oracle only knows what you explicitly tell it.
+
+```bash
+mkdir -p ~/.claude/hooks
+```
+
+Create `~/.claude/hooks/consult_nb_hook.py` and `~/.claude/hooks/consult_obsidian_hook.py` (see `docs/HOOKS_GUIDE.md` for templates and setup).
+
+Add to `~/.claude/settings.json`:
+```json
+{
+  "hooks": {
+    "UserPromptSubmit": [
+      {
+        "matcher": "",
+        "hooks": [
+          {"type": "command", "command": "python ~/.claude/hooks/consult_nb_hook.py"},
+          {"type": "command", "command": "python ~/.claude/hooks/consult_obsidian_hook.py"}
+        ]
+      }
+    ]
+  }
+}
+```
+
+Full guide: [docs/HOOKS_GUIDE.md](HOOKS_GUIDE.md)
 
 ---
 

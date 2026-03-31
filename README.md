@@ -79,13 +79,16 @@ Oracle reads this before acting. It produces outputs that sound like you — not
 ## Quick Start
 
 1. Install Claude Code CLI: `npm install -g @anthropic/claude-code`
-2. Copy `CLAUDE.md.template` to `~/CLAUDE.md` and fill in your identity
-3. Fill in your Soul Document (`soul-document/SOUL_DOCUMENT.md.template`)
-4. Copy memory templates to `~/.claude/projects/[project]/memory/`
-5. Install MCP servers (see `docs/MCP_GUIDE.md`)
-6. Copy skills to `~/.claude/skills/`
-7. Set up Telegram plugin (`/telegram:configure`)
-8. Configure cron agents on `claude.ai/code/scheduled`
+2. Authenticate with GitHub: `gh auth login` (required to push your own fork)
+3. Copy `CLAUDE.md.template` to `~/CLAUDE.md` and fill in your identity
+4. Fill in your Soul Document (`soul-document/SOUL_DOCUMENT.md.template`)
+5. Copy workspace templates: `cp -r workspace-template/ ~/oracle-workspace/`
+6. Copy memory templates to `~/.claude/projects/[project]/memory/`
+7. Install MCP servers (see `docs/MCP_GUIDE.md`)
+8. Copy skills to `~/.claude/skills/`
+9. Set up hooks (see `docs/HOOKS_GUIDE.md`)
+10. Set up Telegram plugin (`/telegram:configure`)
+11. Configure heartbeats on `claude.ai/code/scheduled` (see `docs/HEARTBEAT_GUIDE.md`)
 
 Full setup guide: [docs/SETUP.md](docs/SETUP.md)
 
@@ -95,9 +98,16 @@ Full setup guide: [docs/SETUP.md](docs/SETUP.md)
 
 ```
 oracle-framework/
-├── CLAUDE.md.template          # Core identity + rules (fill this first)
+├── CLAUDE.md.template              # Core identity + rules (fill this first)
 ├── soul-document/
 │   └── SOUL_DOCUMENT.md.template   # Your cognitive profile
+├── workspace-template/             # Operational workspace files (copy to ~/oracle-workspace/)
+│   ├── USER.md.template            # Your professional profile
+│   ├── VOICE.md.template           # Your communication style + real examples
+│   ├── CONTACTS.md.template        # Key contacts with context and tone calibration
+│   ├── HEARTBEAT.md.template       # Autonomous automation config (topics, KPIs, tasks)
+│   ├── AGENTS.md.template          # Registry of active skills
+│   └── TOOLS.md.template           # Available MCPs, connectors, local services
 ├── memory/
 │   ├── MEMORY.md.template          # Memory index
 │   ├── user_profile.md.template    # Your profile for Oracle
@@ -117,6 +127,8 @@ oracle-framework/
 └── docs/
     ├── SETUP.md                    # Step-by-step installation
     ├── ARCHITECTURE.md             # How Oracle works (memory, agents, self-improvement)
+    ├── HOOKS_GUIDE.md              # How automatic context injection works (NotebookLM + Obsidian)
+    ├── HEARTBEAT_GUIDE.md          # Scheduled automations: morning briefing, funding scout, etc.
     ├── SOUL_INTERVIEW.md           # How to write your Soul Document
     └── MCP_GUIDE.md                # MCPs, local AI stack, Telegram, desktop control
 ```

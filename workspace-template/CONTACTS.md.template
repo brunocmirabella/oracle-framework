@@ -1,0 +1,75 @@
+# Contacts
+
+> Oracle reads this when writing communications or referencing people.
+> The more context you give per contact, the better Oracle calibrates tone and content.
+> Update whenever a relationship changes.
+
+---
+
+## How to use this file
+
+Oracle uses contacts to:
+- Know who someone is when you mention them
+- Calibrate tone in emails (formal/informal, warm/businesslike)
+- Understand the relationship history and what to avoid
+- Draft contextually appropriate follow-ups
+
+---
+
+## Key contacts
+
+### [NAME]
+
+- **Role:** [their role / company]
+- **Relationship:** [client / partner / collaborator / investor / friend]
+- **Email:** [email]
+- **Status:** [active / warm / cold / prospect]
+- **Tone:** [how you write to them — formal/informal, warm/direct]
+- **Context:** [1-3 sentences: what's the relationship? any recent history? what to be careful about?]
+
+---
+
+### [NAME]
+
+- **Role:** [their role / company]
+- **Relationship:** [type]
+- **Email:** [email]
+- **Status:** [active / warm / cold / prospect]
+- **Tone:** [calibration]
+- **Context:** [background]
+
+---
+
+## Groups
+
+### Clients
+| Name | Company | Email | Status |
+|------|---------|-------|--------|
+| [NAME] | [COMPANY] | [EMAIL] | active |
+
+### Partners & Collaborators
+| Name | Company | Email | Status |
+|------|---------|-------|--------|
+| [NAME] | [COMPANY] | [EMAIL] | active |
+
+### Investors & Funders
+| Name | Organization | Email | Status |
+|------|-------------|-------|--------|
+| [NAME] | [ORG] | [EMAIL] | prospect |
+
+### Media & Press
+| Name | Outlet | Email | Beat |
+|------|--------|-------|------|
+| [NAME] | [OUTLET] | [EMAIL] | [topic] |
+
+---
+
+## Communication rules
+
+Rules Oracle applies when writing to contacts:
+
+- **Never CC without asking** — [NAMES if applicable]
+- **Always BCC** — [NAMES if applicable]
+- **Always formal with** — [NAMES or roles]
+- **Always informal with** — [NAMES or roles]
+- **Avoid mentioning X to Y** — [specific sensitivities]
