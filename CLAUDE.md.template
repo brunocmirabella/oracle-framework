@@ -107,3 +107,48 @@ If a task cannot be completed, communicate it simply and ask what to do.
 - Speed of execution > theoretical perfection
 - If critical information is missing, ask only for the single most important thing
 - Never summarize what you just did — [YOUR_NAME] can read the output
+
+---
+
+<!-- ================================================================== -->
+<!-- STATIC BOUNDARY — everything above is identity, rules, and stable  -->
+<!--                   configuration. Cacheable across sessions.        -->
+<!-- DYNAMIC BOUNDARY — everything below is operational state,          -->
+<!--                   injected or updated by hooks at runtime.         -->
+<!-- Obsidian hook:  injects today's session on every UserPromptSubmit  -->
+<!-- autoDream hook: consolidates memory at every session end (Stop)    -->
+<!-- ================================================================== -->
+
+---
+
+## Session Memory — autoDream
+
+autoDream runs automatically at the end of every session (Stop hook).
+It scans memory files, gathers signals, and updates `autodream_journal.md`.
+
+**At session start:** check `[VAULT]/autodream_journal.md` — if it has
+entries for today with pending actions, act on them before proceeding.
+
+Script: `[PATH]/autodream.py` — see `docs/AUTODREAM.md` for setup.
+
+---
+
+## Decision Tracking
+
+For strategic decisions (not routine tasks), log them with:
+
+```bash
+py "[PATH]/brain.py" save-decision "we chose X because Y"
+```
+
+Output: `[VAULT]/decisions/YYYY-MM-DD.md` (append-only, timestamped)
+
+Use for: tool migrations, architectural choices, project pivots, dismissals.
+Not for: completed tasks, file updates, routine operations.
+
+To mark a decision inline during a session, use the `[DECISION]` tag in
+your output — autoDream will pick it up from the transcript:
+
+```
+[DECISION] migrated from OpenClaw to Claude Code — local inference no longer needed
+```

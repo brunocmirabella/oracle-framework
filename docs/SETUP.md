@@ -226,6 +226,36 @@ Say hello to Oracle. Test a skill trigger. Check that Telegram is working.
 
 ---
 
+## Step 12 — Set up autoDream (memory consolidation)
+
+```bash
+cp scripts/autodream.py ~/oracle-workspace/autodream.py
+cp scripts/brain.py ~/oracle-workspace/brain.py
+```
+
+Edit both files and update the path placeholders (`[YOUR-VAULT-PATH]`, etc.).
+
+Add autoDream as a Stop hook in `~/.claude/settings.json`:
+```json
+{
+  "hooks": {
+    "Stop": [{
+      "hooks": [{
+        "type": "command",
+        "command": "PYTHONIOENCODING=utf-8 py -3.11 \"/path/to/autodream.py\"",
+        "timeout": 15,
+        "async": true,
+        "statusMessage": "autoDream: consolidating memory..."
+      }]
+    }]
+  }
+}
+```
+
+Full guide: [docs/AUTODREAM.md](AUTODREAM.md)
+
+---
+
 ## Next steps
 
 Once everything is running:

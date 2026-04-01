@@ -89,6 +89,7 @@ Oracle reads this before acting. It produces outputs that sound like you — not
 9. Set up hooks (see `docs/HOOKS_GUIDE.md`)
 10. Set up Telegram plugin (`/telegram:configure`)
 11. Configure heartbeats on `claude.ai/code/scheduled` (see `docs/HEARTBEAT_GUIDE.md`)
+12. Set up autoDream memory consolidation (see `docs/AUTODREAM.md`)
 
 Full setup guide: [docs/SETUP.md](docs/SETUP.md)
 
@@ -122,6 +123,9 @@ oracle-framework/
 │       ├── meeting-reporter/       # Audio/notes → structured minutes + action items
 │       ├── skills-builder/         # Meta-agent: Oracle builds its own skills
 │       └── system-audit/           # Self-diagnosis: what works, what's missing
+├── scripts/
+│   ├── autodream.py                # Memory consolidation Stop hook (4-phase: orient/gather/consolidate/prune)
+│   └── brain.py                    # Second brain CLI: sessions, decisions, project notes
 ├── cron/
 │   └── REMOTE_TRIGGERS.md          # Autonomous scheduled agents
 └── docs/
@@ -129,6 +133,7 @@ oracle-framework/
     ├── ARCHITECTURE.md             # How Oracle works (memory, agents, self-improvement)
     ├── HOOKS_GUIDE.md              # How automatic context injection works (NotebookLM + Obsidian)
     ├── HEARTBEAT_GUIDE.md          # Scheduled automations: morning briefing, funding scout, etc.
+    ├── AUTODREAM.md                # Memory consolidation: autoDream setup and behavior
     ├── SOUL_INTERVIEW.md           # How to write your Soul Document
     └── MCP_GUIDE.md                # MCPs, local AI stack, Telegram, desktop control
 ```
