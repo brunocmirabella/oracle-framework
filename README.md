@@ -235,6 +235,6 @@ This framework was built by [Bruno Mirabella](https://linkedin.com/in/brunomirab
 Oracle has been running in production on his own life and work since early 2026 — covering both professional (AI training, screenwriting, direction) and personal life. Two additional instances are deployed on different contexts:
 
 - **Lucius** — freelance developer / CTO profile: 15 active skills, focused on code, client proposals, and technical documentation
-- **Oracle for CEOs** — executive profile: manages meetings, departments, task delegation, and calendar — producing structured minutes, briefings, and follow-ups in the executive's voice
+- **Alfred** — executive profile: manages meetings, departments, task delegation, and calendar — producing structured minutes, briefings, and follow-ups in the executive's voice
 
 If you want Oracle configured for your organization: [contact](mailto:brunocmirabella@gmail.com)
