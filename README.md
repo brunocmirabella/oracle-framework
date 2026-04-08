@@ -232,6 +232,9 @@ MIT — free to use, fork, and build on. If you build something interesting, ope
 
 This framework was built by [Bruno Mirabella](https://linkedin.com/in/brunomirabella) — AI trainer (600+ professionals), screenwriter, and director.
 
-Oracle has been running in production on his own life and work since early 2026. Two additional instances — Lucius (freelance developer / CTO profile) and Olimpia (CEO / strategic profile) — are deployed on different professional contexts.
+Oracle has been running in production on his own life and work since early 2026 — covering both professional (AI training, screenwriting, direction) and personal life. Two additional instances are deployed on different contexts:
+
+- **Lucius** — freelance developer / CTO profile: 15 active skills, focused on code, client proposals, and technical documentation
+- **Oracle for CEOs** — executive profile: manages meetings, departments, task delegation, and calendar — producing structured minutes, briefings, and follow-ups in the executive's voice
 
 If you want Oracle configured for your organization: [contact](mailto:brunocmirabella@gmail.com)
