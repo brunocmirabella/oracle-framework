@@ -130,8 +130,7 @@ oracle-framework/
 │       ├── research-agent/         # Web research on demand
 │       ├── meeting-reporter/       # Audio/notes → structured minutes + action items
 │       ├── skills-builder/         # Meta-agent: Oracle builds its own skills
-│       ├── stratega/               # Self-audit: Oracle analyzes its own system state
-│       └── system-audit/           # Self-diagnosis: what works, what's missing
+│       └── system-audit/           # Self-audit: what works, what's missing, what to improve
 ├── scripts/
 │   ├── autodream.py                # Memory consolidation Stop hook (4-phase: orient/gather/consolidate/prune)
 │   └── brain.py                    # Second brain CLI: sessions, decisions, project notes
