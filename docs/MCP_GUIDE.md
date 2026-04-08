@@ -131,8 +131,6 @@ These connectors are available to both local sessions and Remote Triggers.
 
 ---
 
----
-
 ## n8n — Local Automation Hub
 
 n8n is the missing piece between Oracle and the outside world. While MCP servers let Oracle *read and draft*, n8n lets Oracle *publish and trigger* — across social platforms, CRMs, webhooks, and more.
@@ -141,7 +139,7 @@ n8n is the missing piece between Oracle and the outside world. While MCP servers
 ```bash
 npm install -g n8n
 n8n start
-# → runs at http://localhost:5678
+# runs at http://localhost:5678
 ```
 
 **How Oracle uses n8n:**
@@ -158,11 +156,11 @@ Oracle logs contact → n8n syncs to HubSpot / Notion CRM
 
 | Workflow | Trigger | Output |
 |----------|---------|--------|
-| Social publish | File created in `/oracle-out/social/` | Post to IG + LI + FB |
+| Social publish | File created in /oracle-out/social/ | Post to IG + LI + FB |
 | WhatsApp summary | Webhook from Oracle | Send formatted summary |
 | CRM contact sync | Webhook | Update HubSpot / Notion DB |
 | Content calendar | Schedule (n8n cron) | Pull from Notion → post |
-| Email → Oracle | New Gmail label | Notify Oracle via file |
+| Email alert | New Gmail label | Notify Oracle via file |
 
 **Why n8n over Zapier/Make:**
 - Runs locally — your data never leaves your machine
@@ -221,7 +219,6 @@ These integrations unlock Oracle's most powerful capabilities: native control of
 Gives Oracle eyes and hands on your desktop. It can move the mouse, click, type, take screenshots, read what's on screen — and act on any app that doesn't have an API.
 
 ```bash
-# Install via npm
 npm install -g mcp-control
 claude mcp add mcp-control -- npx mcp-control
 ```
@@ -248,7 +245,7 @@ pip install openai-whisper
 
 **Usage:**
 ```bash
-python -c "import whisper; m=whisper.load_model('base'); r=m.transcribe('[file.mp3]', language='en'); print(r['text'])"
+python -c "import whisper; m=whisper.load_model('base'); r=m.transcribe('file.mp3', language='en'); print(r['text'])"
 ```
 
 **Models:** `tiny` (fast), `base` (balanced), `medium`/`large` (accurate for noisy audio)
@@ -258,43 +255,154 @@ python -c "import whisper; m=whisper.load_model('base'); r=m.transcribe('[file.m
 - Process voice messages from Telegram
 - Convert spoken notes to text
 
-### Telegram plugin (mobile interface)
+### Voice reply — Telegram voice messages (edge-tts)
 
-The Telegram plugin turns your phone into Oracle's control panel. Send a message from anywhere → Oracle acts on your desktop.
+Oracle can respond with voice messages on Telegram — not just text. Useful for conversational interactions, mobile briefings, or any context where listening is more natural than reading.
 
-**Install:** Available via Claude Code plugin marketplace
-```
-/telegram:configure <your-bot-token>
-```
-
-Get a bot token from [@BotFather](https://t.me/BotFather) on Telegram.
-
-**What this enables:**
-- Send task requests from your phone while away from the desk
-- Receive reports and summaries as Telegram messages
-- Voice messages → Whisper transcription → Oracle action
-- Full Oracle pipeline triggered from mobile
-
-### Google Workspace CLI (clasp + gcloud)
-
-For deep Google ecosystem integration — beyond what the OAuth connectors provide.
-
+**Install:**
 ```bash
-# Google Cloud SDK
-# Download from: cloud.google.com/sdk
-gcloud auth login
-gcloud auth application-default login
-
-# clasp (Google Apps Script CLI)
-npm install -g @google/clasp
-clasp login
+pip install edge-tts
+# Also requires ffmpeg (system install — must be in PATH)
 ```
 
-**What this enables:**
-- Deploy and manage Google Apps Scripts
-- Automate Google Sheets, Docs, Forms via code
-- Access Google Cloud APIs directly
-- Manage Google Workspace admin operations
+**Script:** `scripts/oracle_tts.py` — converts text to OGG Opus, the format Telegram uses for voice messages.
+
+**Usage from CLAUDE.md:**
+```python
+import subprocess
+result = subprocess.run(
+    ["python", "/path/to/scripts/oracle_tts.py", "Text to speak"],
+    capture_output=True, text=True
+)
+ogg_path = result.stdout.strip()
+# then attach to Telegram reply: reply(..., files=[ogg_path])
+```
+
+**Voice selection:** Edit `DEFAULT_VOICE` in `oracle_tts.py`. Full list: `edge-tts --list-voices`
+- English: `en-US-AriaNeural`, `en-GB-SoniaNeural`
+- Italian: `it-IT-IsabellaNeural`
+- Spanish: `es-ES-ElviraNeural`
+- French: `fr-FR-DeniseNeural`
+
+**Trigger in CLAUDE.md:** When the user sends a voice message or requests a voice reply, generate the audio and attach it to the Telegram reply via `files: [ogg_path]`.
+
+**Cost:** Free — uses Microsoft Edge TTS network endpoint. No API key required. Requires internet and ffmpeg for MP3 to OGG Opus conversion.
+
+### WhatsApp bridge
+
+Oracle can monitor WhatsApp messages via a local bridge and summarize or route them — but never replies autonomously.
+
+**How it works:**
+1. Bridge script connects to WhatsApp Web and exposes a local interface
+2. Oracle reads incoming messages via file polling or local webhook
+3. Oracle summarizes and routes — but never sends without explicit confirmation
+
+**Non-negotiable rules (must be in CLAUDE.md):**
+- Never reply in group chats
+- Never reply autonomously — only draft responses for review
+- Only send with explicit confirmation from you
+- Priority contacts trigger immediate notifications to you (via Telegram), not to them
+
+**Use cases:**
+- Morning briefing: Oracle scans overnight messages and summarizes action items
+- Priority alerts: specific senders → instant Telegram notification to you
+- Batch processing: Oracle drafts replies for your review in bulk
+
+**Implementation options:**
+- [whatsapp-web.js](https://github.com/pedroslopez/whatsapp-web.js) — Node.js, widely used
+- [WPPConnect](https://github.com/wppconnect-team/wppconnect) — alternative with more features
+- n8n WhatsApp node — if you prefer GUI-based workflow management
+
+**Note:** WhatsApp Web bridges operate in a grey zone of WhatsApp ToS. Use responsibly and only on accounts you own.
+
+### Desktop control script
+
+Beyond MCPControl (full mouse/keyboard access), you can expose a predefined set of OS-level commands through a simple local script. Safer for system operations like sleep, shutdown, or starting local services.
+
+**Pattern (Linux/Mac):**
+```bash
+#!/bin/bash
+# oracle-commands.sh
+case "$1" in
+  sleep)        pmset sleepnow ;;
+  shutdown)     sudo shutdown -h now ;;
+  restart)      sudo shutdown -r now ;;
+  start-n8n)    n8n start & ;;
+  start-ollama) ollama serve & ;;
+  start-all)    n8n start & ollama serve & ;;
+  *)            echo "Unknown command: $1"; exit 1 ;;
+esac
+```
+
+On Windows, use a `.bat` file with `if "%1"=="sleep" ...` branching.
+
+**In CLAUDE.md:**
+```
+PC Control script: /path/to/oracle-commands.sh [command]
+Commands: sleep, shutdown, restart, start-n8n, start-ollama, start-all
+Requires confirmation before: shutdown, restart, sleep
+No confirmation needed for: starting services
+```
+
+**Why this over MCPControl for system ops:**
+- Predefined, auditable set of allowed actions
+- Oracle cannot trigger arbitrary system operations
+- Works without MCPControl installed
+- Easy to audit, extend, and version-control
+
+### Email alerts via Telegram
+
+Oracle watches your inbox and pushes Telegram notifications for unread emails — filtering by sender, subject keywords, or labels.
+
+**How it works:**
+1. A Remote Trigger runs on a schedule (e.g., every 30 min)
+2. Oracle queries Gmail for unread messages matching your filter rules
+3. Matching emails → formatted Telegram notification
+4. Oracle never replies — only reads and notifies
+
+**Filter rules (define in HEARTBEAT.md):**
+```yaml
+email_alerts:
+  - senders: [boss@company.com, client@example.com]
+    keywords: [urgent, invoice, deadline]
+    notify: immediately
+  - senders: []        # all senders
+    keywords: []       # all subjects
+    notify: morning_digest
+```
+
+**Telegram notification format:**
+```
+Email from Marco Rossi
+Subject: Partnership proposal — Q2 review
+[first 2 lines of the email]
+```
+
+**Setup:** Configure as a Remote Trigger at `claude.ai/code/scheduled` with Gmail connector active. See `cron/REMOTE_TRIGGERS.md`.
+
+### Calendar reminders via Telegram
+
+Oracle checks your calendar and sends Telegram reminders before events — with context (attendees, location, prep notes).
+
+**Reminder tiers (configure in HEARTBEAT.md):**
+```
+15 min before  → "Starting soon: [Event] with [People]"
+1 hour before  → "[Event] in 1h — [location / dial-in link]"
+1 day before   → "Tomorrow: [Event] — [preparation notes]"
+```
+
+**Morning briefing format (sent at 07:30):**
+```
+Today — Tuesday Apr 8
+
+09:00  Team standup (30 min) — Google Meet
+11:30  Client call with Marco
+14:00  Deep work block (2h)
+
+Tomorrow: Board review at 10:00 — prepare Q1 report
+```
+
+**Setup:** Morning briefing → Remote Trigger at 07:30. Individual reminders → Remote Trigger every 15 min. See `cron/REMOTE_TRIGGERS.md`.
 
 ---
 
@@ -314,8 +422,8 @@ Oracle Core (Claude Code CLI)
 │   └── Telegram plugin     — mobile interface (send/receive)
 │
 ├── Cloud Connectors (claude.ai/settings/connectors)
-│   ├── Gmail               — email read/draft
-│   ├── Google Calendar     — events, scheduling
+│   ├── Gmail               — email read/draft + unread alerts
+│   ├── Google Calendar     — events, scheduling, reminders
 │   ├── Canva               — graphics generation
 │   ├── Gamma               — AI slide decks
 │   ├── Notion              — cloud knowledge base
@@ -323,8 +431,11 @@ Oracle Core (Claude Code CLI)
 │   ├── Indeed              — job market research
 │   └── Replicate           — image/video AI generation
 │
-├── Local tools (CLI)
+├── Local tools (scripts + CLI)
+│   ├── oracle_tts.py       — voice reply (edge-tts, OGG Opus for Telegram)
 │   ├── Whisper             — local audio transcription
+│   ├── oracle-commands.sh  — OS control (sleep, shutdown, start services)
+│   ├── WhatsApp bridge     — message monitoring (read-only by default)
 │   ├── gcloud / clasp      — Google Workspace deep integration
 │   └── n8n                 — local automation hub (port 5678)
 │
@@ -332,6 +443,13 @@ Oracle Core (Claude Code CLI)
 │   ├── Memory cards        — immediate context (CLAUDE.md files)
 │   ├── Obsidian vault      — session RAM (live notes)
 │   └── NotebookLM          — permanent HD (structured knowledge)
+│
+├── Remote Triggers (claude.ai/code/scheduled)
+│   ├── Morning briefing    — 07:30 daily (calendar + email digest)
+│   ├── Email alerts        — every 30 min (priority senders)
+│   ├── Calendar reminders  — 15 min, 1h, 1 day before events
+│   ├── Funding scout       — Monday weekly
+│   └── News digest         — weekdays
 │
 └── n8n Workflows (localhost:5678)
     ├── Social publishing   — IG, LinkedIn, Facebook, X
