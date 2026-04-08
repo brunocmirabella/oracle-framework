@@ -54,6 +54,8 @@ Oracle reads your previous email thread, drafts the follow-up in your tone, and 
 
 **Skills** — modular agents activated by natural language triggers. Each skill is a `SKILL.md` file that tells Oracle who to become, what to read, how to act, and what to produce.
 
+**Subagents** — specialized Claude Code agents defined in `~/.claude/agents/`. Unlike skills (which load context), subagents run as independent processes with their own tools and scope. Oracle uses them for parallel work, code review, security analysis, and communication triage. See `agents/` directory.
+
 **MCP Servers** — direct connections to Gmail, Google Calendar, Playwright (browser automation), Brave Search, Telegram, and more.
 
 **n8n** — local automation hub running on port 5678. Connects Oracle's outputs to social platforms (Instagram, LinkedIn, Facebook), CRM tools, and any webhook endpoint. Unlike cloud automation tools (Zapier, Make), n8n runs entirely on your machine — no data leaves your infrastructure.
@@ -86,10 +88,11 @@ Oracle reads this before acting. It produces outputs that sound like you — not
 6. Copy memory templates to `~/.claude/projects/[project]/memory/`
 7. Install MCP servers (see `docs/MCP_GUIDE.md`)
 8. Copy skills to `~/.claude/skills/`
-9. Set up hooks (see `docs/HOOKS_GUIDE.md`)
-10. Set up Telegram plugin (`/telegram:configure`)
-11. Configure heartbeats on `claude.ai/code/scheduled` (see `docs/HEARTBEAT_GUIDE.md`)
-12. Set up autoDream memory consolidation (see `docs/AUTODREAM.md`)
+9. Copy agents to `~/.claude/agents/`
+10. Set up hooks (see `docs/HOOKS_GUIDE.md`)
+11. Set up Telegram plugin (`/telegram:configure`)
+12. Configure heartbeats on `claude.ai/code/scheduled` (see `docs/HEARTBEAT_GUIDE.md`)
+13. Set up autoDream memory consolidation (see `docs/AUTODREAM.md`)
 
 Full setup guide: [docs/SETUP.md](docs/SETUP.md)
 
@@ -113,6 +116,11 @@ oracle-framework/
 │   ├── MEMORY.md.template          # Memory index
 │   ├── user_profile.md.template    # Your profile for Oracle
 │   └── reference_knowledge.md.template  # Paths, services, external resources
+├── agents/                         # Subagent definitions (copy to ~/.claude/agents/)
+│   ├── AGENT.md.template           # Build your own subagent
+│   ├── chief-of-staff.md           # Communication triage: email, Telegram, Slack
+│   ├── stratega.md                 # System audit: what works, what's missing
+│   └── planner.md                  # Implementation planning for complex tasks
 ├── skills/
 │   ├── SKILL.md.template           # Build your own skill
 │   └── examples/
@@ -122,6 +130,7 @@ oracle-framework/
 │       ├── research-agent/         # Web research on demand
 │       ├── meeting-reporter/       # Audio/notes → structured minutes + action items
 │       ├── skills-builder/         # Meta-agent: Oracle builds its own skills
+│       ├── stratega/               # Self-audit: Oracle analyzes its own system state
 │       └── system-audit/           # Self-diagnosis: what works, what's missing
 ├── scripts/
 │   ├── autodream.py                # Memory consolidation Stop hook (4-phase: orient/gather/consolidate/prune)
@@ -223,6 +232,6 @@ MIT — free to use, fork, and build on. If you build something interesting, ope
 
 This framework was built by [Bruno Mirabella](https://linkedin.com/in/brunomirabella) — AI trainer (600+ professionals), screenwriter, and director.
 
-Oracle has been running in production on his own life and work since early 2026. Two additional instances — Lucius (freelance developer / CTO profile) and Alfred (manager profile) — are deployed on different professional contexts.
+Oracle has been running in production on his own life and work since early 2026. Two additional instances — Lucius (freelance developer / CTO profile) and Olimpia (CEO / strategic profile) — are deployed on different professional contexts.
 
 If you want Oracle configured for your organization: [contact](mailto:brunocmirabella@gmail.com)

@@ -94,6 +94,25 @@ Direct access to your local files. Oracle already has file access via built-in t
 claude mcp add filesystem -- npx -y @modelcontextprotocol/server-filesystem /path/to/your/workspace
 ```
 
+### MCPControl (Desktop automation)
+Lets Oracle control your mouse, keyboard, and screen — take screenshots, click elements, type text, read clipboard. Enables full desktop automation for apps that don't have APIs or web interfaces.
+
+**Install:** See [github.com/Anthropic-Community/mcp-control](https://github.com/Anthropic-Community/mcp-control) or search for `mcp-control` in your MCP registry.
+
+**What Oracle can do:**
+- Take screenshots and analyze what's on screen
+- Click, type, scroll in any application
+- Read/write clipboard content
+- Control any desktop app (CRM, design tools, legacy software)
+
+**Use cases:**
+- Automate tasks in apps without APIs
+- Screen recording and monitoring
+- UI testing and demonstration
+- Control tools that only exist as desktop apps
+
+**Note:** Only available in local sessions. Remote Triggers (cloud cron) cannot control your desktop.
+
 ---
 
 ## Cloud connectors (claude.ai/settings/connectors)

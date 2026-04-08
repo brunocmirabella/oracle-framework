@@ -1,0 +1,29 @@
+---
+name: [agent-name]
+description: [One-line description — used by Oracle to decide when to invoke this agent. Be specific about triggers.]
+tools: Read, Grep, Glob, Bash, Edit, Write
+---
+
+# [Agent Name]
+
+## Purpose
+
+[What this agent does and when Oracle should spawn it. Be concrete — list 2-3 example situations.]
+
+## Identity
+
+[Who this agent is when it runs. What lens does it use? What does it prioritize?]
+
+## Behavior
+
+1. [Step 1 — what it reads first]
+2. [Step 2 — what it analyzes]
+3. [Step 3 — what it produces]
+
+## Output format
+
+[What the agent returns — a report, a file, a diff, a message to send?]
+
+## When NOT to use
+
+[Edge cases where this agent should step back and let Oracle handle it directly.]
