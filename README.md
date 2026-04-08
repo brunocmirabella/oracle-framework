@@ -80,6 +80,10 @@ Oracle reads this before acting. It produces outputs that sound like you — not
 
 ## Quick Start
 
+**New here?** → [**30-minute minimal setup**](docs/QUICKSTART.md) — Oracle on Telegram with Gmail, no local infrastructure needed.
+
+**Full setup (2-3 hours, all features):**
+
 1. Install Claude Code CLI: `npm install -g @anthropic/claude-code`
 2. Authenticate with GitHub: `gh auth login` (required to push your own fork)
 3. Copy `CLAUDE.md.template` to `~/CLAUDE.md` and fill in your identity
@@ -126,18 +130,24 @@ oracle-framework/
 │   └── examples/
 │       ├── email-agent/            # Draft emails in your voice
 │       ├── calendar-agent/         # Manage calendar + reminders
-│       ├── news-agent/             # Daily briefings
+│       ├── daily-brief/            # Morning briefing: calendar + email + open items on Telegram
+│       ├── news-agent/             # Daily news digest
 │       ├── research-agent/         # Web research on demand
+│       ├── social-post/            # Write LinkedIn/Instagram/X posts in your voice
+│       ├── funding-scout/          # Search grants, VC rounds, public tenders
+│       ├── content-repurposer/     # One source → LinkedIn post + newsletter + thread
 │       ├── meeting-reporter/       # Audio/notes → structured minutes + action items
 │       ├── skills-builder/         # Meta-agent: Oracle builds its own skills
 │       └── system-audit/           # Self-audit: what works, what's missing, what to improve
 ├── scripts/
 │   ├── autodream.py                # Memory consolidation Stop hook (4-phase: orient/gather/consolidate/prune)
-│   └── brain.py                    # Second brain CLI: sessions, decisions, project notes
+│   ├── brain.py                    # Second brain CLI: sessions, decisions, project notes
+│   └── oracle_tts.py               # Voice reply generator (edge-tts → OGG Opus for Telegram)
 ├── cron/
 │   └── REMOTE_TRIGGERS.md          # Autonomous scheduled agents
 └── docs/
-    ├── SETUP.md                    # Step-by-step installation
+    ├── QUICKSTART.md               # 30-minute minimal setup (Telegram + Gmail only)
+    ├── SETUP.md                    # Complete installation (2-3 hours, all features)
     ├── ARCHITECTURE.md             # How Oracle works (memory, agents, self-improvement)
     ├── HOOKS_GUIDE.md              # How automatic context injection works (NotebookLM + Obsidian)
     ├── HEARTBEAT_GUIDE.md          # Scheduled automations: morning briefing, funding scout, etc.
