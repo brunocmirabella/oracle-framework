@@ -167,7 +167,7 @@ From your knowledge base (query: "Marco partnership"):
 In the meeting notes from December, Marco expressed interest in a revenue-share model...
 ---
 
-[Obsidian — Bruno's live memory (RAM)]
+[Obsidian — Your live memory (RAM)]
 === Today's session ===
 ...
 [End Obsidian]
