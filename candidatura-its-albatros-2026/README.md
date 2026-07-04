@@ -24,34 +24,33 @@ Oggetto obbligatorio: **"Avviso Albo Docenti/Formatori – Mirabella Bruno Carme
 
 ## File del pacchetto
 
+Tutti i documenti sono **già compilati con i dati reali** (CF MRBBNC87T22C351P, Via Ofelia 35 – 95124 Catania, Liceo Scientifico "G.B. Vaccarini" 75/100, dati verificati sul CV). Manca solo: **giorno sulla data e firme**.
+
 | File | Cosa fare |
 |---|---|
-| `01_Allegato2_Domanda_di_inserimento_Mirabella.docx` | Completare i campi ⟪DA COMPILARE⟫, stampare/esportare PDF, **firmare 2 volte** |
-| `02_Autocertificazione_CV_DPR445_Mirabella.docx` | Completare, firmare e **unire al PDF del CV firmato** (il CV attuale ha solo l'autorizzazione privacy: serve anche questa dichiarazione di veridicità ex artt. 46-47 DPR 445) |
-| `03_Allegato3_Insussistenza_conflitto_interessi_Mirabella.docx` | Completare, firmare (versione già compilata, fedele al modello del bando) |
-| `04_Allegato4_Consenso_privacy_Mirabella.docx` | Pagina di consenso compilata: firmarla e unirla al PDF dell'informativa originale del bando (o firmare direttamente l'originale) |
-| `05..07_Programma_Alfabetizzazione_IA_ecommerce_*.docx` | Programmi didattici 18h per sede — allegati facoltativi ma fortemente consigliati: distinguono la candidatura |
+| `01_Allegato2_Domanda_di_inserimento_Mirabella.pdf` | Datare e **firmare 2 volte** |
+| `02_CV_Europeo_Mirabella_con_autocertificazione_e_documento.pdf` | **PDF già assemblato**: CV firmato (3 pp.) + autocertificazione DPR 445 (p. 4, **da datare e firmare**) + documento d'identità (4 pp.). Pronto per l'invio dopo la firma |
+| `03_Allegato3_Insussistenza_conflitto_interessi_Mirabella.pdf` | Datare e firmare |
+| `04_Allegato4_Consenso_privacy_Mirabella.pdf` | Datare e firmare (in alternativa firmare l'Allegato 4 originale del bando) |
+| `05-07_Proposta_didattica_moduli_IA_3sedi.pdf` | PDF unico con i 3 programmi (facoltativo, consigliato — v. nota sotto) |
 | `08_Email_di_trasmissione.md` | Testo email pronto: copiare/incollare |
 
-## Campi da completare a mano (non presenti nei documenti forniti)
-
-- **Codice fiscale**
-- **Luogo di nascita** (ho ipotizzato Catania — verificare)
-- **Indirizzo di residenza completo** (via, civico, CAP)
-- **Denominazione del liceo scientifico e votazione del diploma** (requisito minimo del Ruolo C: nella domanda va indicato il diploma, non la laurea)
-- **Data** su tutti i documenti
+(Le versioni `.docx` di ogni documento restano nella cartella per eventuali modifiche.)
 
 ## Checklist finale prima dell'invio
 
-- [ ] Allegato 2 compilato e firmato (2 firme)
-- [ ] CV europeo firmato + autocertificazione DPR 445 firmata (un unico PDF consigliato)
-- [ ] Allegato 3 compilato e firmato
-- [ ] Allegato 4 firmato
-- [ ] Scansione documento d'identità in corso di validità
-- [ ] (Consigliato) 3 programmi didattici in PDF
+- [ ] Allegato 2 datato e firmato (2 firme)
+- [ ] PDF CV completo: firmata la pagina di autocertificazione (p. 4)
+- [ ] Allegato 3 datato e firmato
+- [ ] Allegato 4 datato e firmato
+- [ ] (Facoltativo) proposta didattica unica in PDF
 - [ ] Tutti i file in **PDF**, in **un'unica email**
 - [ ] Oggetto: "Avviso Albo Docenti/Formatori – Mirabella Bruno Carmelo"
 - [ ] Inviata entro il **9/7/2026 ore 12:00** a corsiitsalbatros.pnrr@gmail.com
+
+## I programmi didattici vanno allegati anche se non richiesti?
+
+Il bando richiede solo 4 documenti (domanda, CV con autocertificazione, All. 3, All. 4 + documento). I programmi **non sono richiesti**, ma **allegarli non è causa di esclusione**: l'art. 3 esclude solo domande non firmate, con dichiarazioni incomplete, prive dei documenti richiesti o non veritiere — nulla vieta documentazione aggiuntiva. A favore dell'invio: la selezione avviene per **comparazione dei curricula** (art. 4) e l'art. 5 chiede al docente di "concordare e definire con il coordinatore didattico il programma di dettaglio" — presentarsi con il programma già pronto e calato sui tre territori è un vantaggio competitivo concreto. Per prudenza e ordine: allegare **un solo PDF** (`05-07_Proposta_didattica_moduli_IA_3sedi.pdf`) e menzionarlo nell'email come "proposta didattica a titolo integrativo", come già fa il testo preparato.
 
 ## Note strategiche
 
