@@ -50,7 +50,13 @@ Tutti i documenti sono **già compilati con i dati reali** (CF MRBBNC87T22C351P,
 
 ## I programmi didattici vanno allegati anche se non richiesti?
 
-Il bando richiede solo 4 documenti (domanda, CV con autocertificazione, All. 3, All. 4 + documento). I programmi **non sono richiesti**, ma **allegarli non è causa di esclusione**: l'art. 3 esclude solo domande non firmate, con dichiarazioni incomplete, prive dei documenti richiesti o non veritiere — nulla vieta documentazione aggiuntiva. A favore dell'invio: la selezione avviene per **comparazione dei curricula** (art. 4) e l'art. 5 chiede al docente di "concordare e definire con il coordinatore didattico il programma di dettaglio" — presentarsi con il programma già pronto e calato sui tre territori è un vantaggio competitivo concreto. Per prudenza e ordine: allegare **un solo PDF** (`05-07_Proposta_didattica_moduli_IA_3sedi.pdf`) e menzionarlo nell'email come "proposta didattica a titolo integrativo", come già fa il testo preparato.
+Verificato sul testo del bando: il materiale aggiuntivo **non è previsto ma nemmeno vietato**.
+
+- L'art. 3 elenca in modo tassativo le cause di esclusione (domanda non firmata, dichiarazioni incomplete, documenti richiesti mancanti, informazioni non veritiere): allegare documenti in più **non è causa di esclusione**.
+- L'art. 2 precisa però che la valutazione avviene sui requisiti "**indicati nel curriculum vitae**", e l'art. 4 sulla "procedura comparativa selettiva dei **curricula**": la Commissione è tenuta a valutare il CV, non gli extra. La proposta didattica potrebbe quindi non essere formalmente "punteggiata", ma resta visibile a chi legge la candidatura.
+- L'art. 4 prevede anche un possibile **colloquio conoscitivo**, e l'art. 5 chiede al docente incaricato di "concordare e definire con il coordinatore didattico il programma di dettaglio": la proposta pronta e calata sui tre territori è il materiale perfetto per quel momento.
+
+**Raccomandazione**: allegare il PDF unico (`05-07_Proposta_didattica_moduli_IA_3sedi.pdf`) presentandolo nell'email come proposta integrativa (il testo preparato già lo fa così): rischio zero, possibile vantaggio in lettura e comunque asset pronto per il colloquio. In caso di dubbi estremi, l'alternativa è tenerlo solo per il colloquio.
 
 ## Note strategiche
 
